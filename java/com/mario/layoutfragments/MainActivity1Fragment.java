@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -24,8 +25,11 @@ public class MainActivity1Fragment extends Fragment {
         boton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                if(getResources().getBoolean(R.bool.landScape)){
+                    Toast.makeText(getActivity(),"Esto es un LandScape con dos fragments", Toast.LENGTH_LONG).show();
+                }else{
                 Intent intent=new Intent(getActivity(),MainActivity2.class);
-                startActivity(intent);
+                startActivity(intent);}
             }
 
 
