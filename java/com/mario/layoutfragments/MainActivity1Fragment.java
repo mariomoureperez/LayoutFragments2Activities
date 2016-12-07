@@ -18,7 +18,7 @@ public class MainActivity1Fragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View layFra=inflater.inflate(R.layout.fragment_main1, container, false);
         Button boton=(Button) layFra.findViewById(R.id.button);
@@ -27,6 +27,7 @@ public class MainActivity1Fragment extends Fragment {
             public void onClick(View v){
                 if(getResources().getBoolean(R.bool.landScape)){
                     Toast.makeText(getActivity(),"Esto es un LandScape con dos fragments", Toast.LENGTH_LONG).show();
+
                 }else{
                 Intent intent=new Intent(getActivity(),MainActivity2.class);
                 intent.putExtra("hola","Mensaje desde la Activity1");

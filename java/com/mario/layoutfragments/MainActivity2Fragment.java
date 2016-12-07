@@ -22,13 +22,16 @@ public class MainActivity2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View layFra2=inflater.inflate(R.layout.fragment_main2, container, false);
+        if(getResources().getBoolean(R.bool.landScape)) {
+            return layFra2;
+        }
+        else{
 
         TextView texto=(TextView) layFra2.findViewById(R.id.textView);
         String str=getActivity().getIntent().getStringExtra("hola");
         texto.setText(str);
-        return layFra2;
+        return layFra2;}
 
     }
-
 
 }
