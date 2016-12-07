@@ -29,6 +29,7 @@ public class MainActivity1Fragment extends Fragment {
                     Toast.makeText(getActivity(),"Esto es un LandScape con dos fragments", Toast.LENGTH_LONG).show();
                 }else{
                 Intent intent=new Intent(getActivity(),MainActivity2.class);
+                intent.putExtra("hola","Mensaje desde la Activity1");
                 startActivity(intent);}
             }
 
