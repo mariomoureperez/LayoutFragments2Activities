@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity1 extends AppCompatActivity {
+public class MainActivity1 extends AppCompatActivity implements MainActivity1Fragment.Comunicar{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,13 @@ public class MainActivity1 extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+    @Override
+    public void mensaje(String texto){
+        MainActivity2Fragment fragment2=(MainActivity2Fragment) getSupportFragmentManager().findFragmentById(R.id.fragment2);
+        if(fragment2 != null){
+            fragment2.recibirTexto(texto);
+        }
     }
 
     @Override

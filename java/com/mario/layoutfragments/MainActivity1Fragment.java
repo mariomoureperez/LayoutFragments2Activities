@@ -1,5 +1,6 @@
 package com.mario.layoutfragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -16,6 +17,18 @@ public class MainActivity1Fragment extends Fragment {
 
     public MainActivity1Fragment() {
     }
+    Comunicar comunicar;
+    public interface Comunicar{
+        public void mensaje(String texto);
+    }
+
+
+
+    public void onAttach(Context contexto){
+        super.onAttach(contexto);
+        comunicar=(Comunicar)contexto;
+    }
+
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -26,8 +39,8 @@ public class MainActivity1Fragment extends Fragment {
             @Override
             public void onClick(View v){
                 if(getResources().getBoolean(R.bool.landScape)){
-                    Toast.makeText(getActivity(),"Esto es un LandScape con dos fragments", Toast.LENGTH_LONG).show();
-
+                   // Toast.makeText(getActivity(),"Esto es un LandScape con dos fragments", Toast.LENGTH_LONG).show();
+                    comunicar.mensaje("Mensaje enviado desde fragment1 landScape");
                 }else{
                 Intent intent=new Intent(getActivity(),MainActivity2.class);
                 intent.putExtra("hola","Mensaje desde la Activity1");
